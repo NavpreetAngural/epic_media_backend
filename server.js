@@ -2,17 +2,17 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 const cors = require("cors")
-const routes = require("./routes")
-const cookieParser = require("cookie-parser")
+const routes = require("./routes/index")
 require("dotenv").config()
 const port = process.env.PORT
 const mongodb = process.env.MONGO_URL
 
-app.use(cookieParser)
 app.use(express.json());
 
 app.use(cors({
-    origin : "http://localhost:5173"
+    origin: "*",
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+
 }))
 
 app.use(routes)
