@@ -8,6 +8,7 @@ const port = process.env.PORT
 const mongodb = process.env.MONGO_URL
 
 app.use(express.json());
+app.use("/uploads" , express.static("uploads"))
 
 app.use(cors({
     origin: "*",

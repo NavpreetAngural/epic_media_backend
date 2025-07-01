@@ -1,6 +1,7 @@
-const User = require("../../models/User.model")
+const User = require("../../models/User.model");
 const { registerValidation } = require("../../services/validationSchema")
-const bcrypt = require("bcryptjs")
+const bcrypt = require("bcryptjs");
+const registerEmail = require("./registerNodemailer");
 
 const Register = async(req, res) => {
     try {
@@ -28,6 +29,13 @@ const Register = async(req, res) => {
                 phone
             })
             await newUser.save()
+
+            try {
+                await registerEmail(email, fullName)
+            }
+            catch (emailerror) {
+                console.error("email sending failed", emailerror)
+            }
 
             res.status(200).json({
                 msg : `${email} registered Successfullly`,

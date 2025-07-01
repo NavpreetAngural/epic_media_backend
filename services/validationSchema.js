@@ -8,4 +8,9 @@ const registerValidation = Joi.object({
     city : Joi.string().required()
 })
 
-module.exports = {registerValidation}
+// const categoryValidation = Joi.object({
+//     cName : Joi.string().required(),
+//     description : Joi.string().required()
+// })
+
+module.exports = {registerValidation }
