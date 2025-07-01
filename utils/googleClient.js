@@ -4,5 +4,6 @@ require("dotenv").config()
 exports.oauth2Client = new google.auth.OAuth2(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  "https://epic-media-backend.onrender.com/api/auth/google"
-)
+  "postmessage"
+);
+
