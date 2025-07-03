@@ -1,27 +1,33 @@
-const Category = require("../../models/Category.model")
+const Category = require("../../models/Category.model");
+
 const add = async (req, res) => {
-    try {
-        const { cName, description } = req.body
+  try {
+    const { cName, description } = req.body;
 
-        const addCategory = new Category({
-            cName,
-            description,
-            cImage: req.file.filename
-        })
-        await addCategory.save()
-        res.status(200).json({
-            msg: `${cName} Added Successfully`,
-            succcess: true,
-            data: addCategory
-        })
+    if (!req.file) {
+      return res.status(400).json({ msg: "Media file is required." });
     }
-    catch (err) {
-        console.log(err)
-        res.status(500).json({
-            msg: "internal server error",
-            err
-        })
-    }
-}
 
-module.exports = add
+    const addCategory = new Category({
+      cName,
+      description,
+      media: req.file.filename,
+    });
+
+    await addCategory.save();
+
+    res.status(200).json({
+      msg: `${cName} added successfully`,
+      success: true,
+      data: addCategory,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      msg: "Internal server error",
+      err,
+    });
+  }
+};
+
+module.exports = add;

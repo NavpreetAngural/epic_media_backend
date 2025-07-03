@@ -1,5 +1,5 @@
 const User = require("../../models/User.model")
-const Booking = require("../../models/booking.model");
+const Booking = require("../../models/Booking.model");
 const bookingEmail = require("../Auth/bookingNodemailer");
 const add = async (req, res) => {
     try {

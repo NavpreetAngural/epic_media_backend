@@ -9,7 +9,7 @@ const categorySchema = new Schema({
         type: String,
         required: true
     },
-    cImage: {
+    media: {
         type: String,
         required: true
     }

@@ -1,4 +1,4 @@
-const Bookings = require("../../models/booking.model")
+const Bookings = require("../../models/Booking.model")
 
 const deleteBooking = async (req, res) => {
     try {

@@ -1,4 +1,4 @@
-const Booking = require('../../models/booking.model');
+const Booking = require('../../models/Booking.model');
 
 const view = async (req, res) => {
     const email = req.params.email
