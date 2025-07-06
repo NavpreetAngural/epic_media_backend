@@ -8,9 +8,15 @@ const registerValidation = Joi.object({
     city : Joi.string().required()
 })
 
+const contactValidation = Joi.object({
+    email : Joi.string().email().required(),
+    subject : Joi.string().required(),
+    message : Joi.string().required()
+})
+
 // const categoryValidation = Joi.object({
 //     cName : Joi.string().required(),
 //     description : Joi.string().required()
 // })
 
-module.exports = {registerValidation }
+module.exports = {registerValidation , contactValidation}

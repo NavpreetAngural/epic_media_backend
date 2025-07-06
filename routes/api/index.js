@@ -5,12 +5,13 @@ const bookingRoutes = require("../../routes/api/bookingRoutes")
 const categoryRoutes = require("../../routes/api/categoryRoutes")
 const storyRoutes = require("../../routes/api/storyRoutes")
 const portfolioRoutes = require("../../routes/api/portfolioRoutes")
+const contactRoutes = require("../../routes/api/contactRoutes")
 
 router.use("/auth", authRoutes)
 router.use("/booking", bookingRoutes)
 router.use("/category" , categoryRoutes)
 router.use("/story" , storyRoutes)
 router.use("/portfolio", portfolioRoutes)
-
+router.use("/contact", contactRoutes)
 
 module.exports = router
