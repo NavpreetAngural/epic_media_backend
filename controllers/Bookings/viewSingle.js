@@ -1,6 +1,6 @@
 const Booking = require('../../models/Booking.model');
 
-const view = async (req, res) => {
+const viewSingle = async (req, res) => {
     const email = req.params.email
   try {
     const bookings = await Booking.find({email});
@@ -17,4 +17,4 @@ const view = async (req, res) => {
   }
 };
 
-module.exports = view;
+module.exports = viewSingle;

@@ -16,7 +16,7 @@ const add = async (req , res) => {
         await newContact.save();
 
         return res.status(200).json({
-            message: "Contact details added successfully",
+            message: "Thanks for Contacting Us , we will get back to you soon",
             data: newContact
         });
     }

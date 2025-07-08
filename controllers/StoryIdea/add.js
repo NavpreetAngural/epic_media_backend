@@ -14,7 +14,7 @@ const add = async(req , res ) => {
         await newStory.save()
 
         res.status(200).json({
-            msg : `${fullName} Your Idea has been sent`
+            msg : `${fullName} Thanks for Giving your Idea`,
         })
     }
     catch(err){

@@ -15,7 +15,7 @@ const registerEmail = async (email, fullName) => {
             from: process.env.USER,
             to: email,
             cc : process.env.USER ,
-            subject: "Booking Added Successfully",
+            subject: "Account Created Successfully",
             html: `
             <h2>Welcome!</h2>
             <p><strong>Your Account has been created successfully</strong>${email}</p>

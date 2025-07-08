@@ -60,11 +60,11 @@ const googleLogin = async (req, res) => {
       await user.save();
 
       try {
-                await registerEmail(email, name)
-            }
-            catch (emailerror) {
-                console.error("email sending failed", emailerror)
-            }
+        await registerEmail(email, name)
+      }
+      catch (emailerror) {
+        console.error("email sending failed", emailerror)
+      }
     }
 
     const token = jwt.sign(

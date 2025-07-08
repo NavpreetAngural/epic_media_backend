@@ -17,6 +17,11 @@ const bookingSchema = new Schema({
         type: String,
         require: true
     },
+    status : {
+        type : String,
+        enum :[ "Pending" , "Accepted" , "Rejected"],
+        default : "Pending" 
+    },
     location: {
         type: String,
         require: true
