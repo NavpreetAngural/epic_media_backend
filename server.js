@@ -3,12 +3,12 @@ const app = express()
 const mongoose = require("mongoose")
 const cors = require("cors")
 const routes = require("./routes/index")
+const path = require("path");
 require("dotenv").config()
 const port = process.env.PORT
 const mongodb = process.env.MONGO_URL
 
 app.use(express.json());
-app.use("/uploads" , express.static("uploads"))
 
 app.use(cors({
     origin: "*",
@@ -17,6 +17,8 @@ app.use(cors({
 }))
 
 app.use(routes)
+app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static('uploads'));
 
 mongoose.connect(mongodb).then(() => {
     console.log("Database Connected Successfully");

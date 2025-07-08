@@ -17,9 +17,6 @@ const downloadDp = async (url, email) => {
     url,
     method: "GET",
     responseType: "stream",
-    headers: {
-      "User-Agent": "Mozilla/5.0"
-    }
   });
 
   response.data.pipe(writer);
