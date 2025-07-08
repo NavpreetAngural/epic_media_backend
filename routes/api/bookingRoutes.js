@@ -1,6 +1,6 @@
 const router = require("express").Router()
 
-const viewSingle = require("../../controllers/Bookings/viewsingle")
+const viewSingle = require("../../controllers/Bookings/viewSingle")
 const authMiddleware = require("../../middleware/authMiddleware")
 const add = require("../../controllers/Bookings/add")
 const del = require("../../controllers/Bookings/delete")
