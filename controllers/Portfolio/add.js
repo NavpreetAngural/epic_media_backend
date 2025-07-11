@@ -8,14 +8,10 @@ const add = async (req, res) => {
             return res.status(400).json({ msg: "Media file is required." });
         }
 
-
         const addPortfolio = new Portfolio({
             image: req.file.filename, // or `/uploads/${req.file.filename}` if you want full path
             orientation,
         });
-
-        
-
 
         await addPortfolio.save();
 
