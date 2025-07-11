@@ -1,4 +1,5 @@
-const Booking = require("../../models/Booking.model");
+const path = require('path');
+console.log(path.resolve(__dirname, '../../models/Booking.model.js'));
 
 const viewSingle = async (req, res) => {
     const email = req.params.email
