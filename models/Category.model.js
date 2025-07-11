@@ -12,7 +12,12 @@ const categorySchema = new Schema({
     media: {
         type: String,
         required: true
+    },
+    url: {
+        type: String,
+        required: true
     }
+    
 })
 
 module.exports = model("categories" , categorySchema)

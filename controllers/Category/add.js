@@ -12,6 +12,7 @@ const add = async (req, res) => {
       cName,
       description,
       media: req.file.filename,
+      url: req.file.path,
     });
 
     await addCategory.save();

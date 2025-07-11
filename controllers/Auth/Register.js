@@ -3,30 +3,32 @@ const { registerValidation } = require("../../services/validationSchema")
 const bcrypt = require("bcryptjs");
 const registerEmail = require("./registerNodemailer");
 
-const Register = async(req, res) => {
+const Register = async (req, res) => {
     try {
         const registerValues = await registerValidation.validateAsync(req.body)
         console.log(registerValues);
-         
-        const {fullName , email , password , phone , city } = req.body
 
-        const existUser = await User.findOne({email})
+        const { fullName, email, password, phone, city } = req.body
 
-        if(existUser){
+        const existUser = await User.findOne({ email })
+
+        if (existUser) {
             res.status(409).json({
-                msg : `${email} Already Exists`,
-                success :false 
+                msg: `${email} Already Exists`,
+                success: false
             })
         }
-        else{
-            const hashed_password = await bcrypt.hash(password , 10)
+        else {
+            const hashed_password = await bcrypt.hash(password, 10)
             const newUser = new User({
                 fullName,
-                password : hashed_password,
+                password: hashed_password,
                 email,
                 city,
-                dp : req.file.filename,
-                phone
+                dp: req.file.filename,
+                phone,
+                url: req.file.path,
+
             })
             await newUser.save()
 
@@ -38,9 +40,9 @@ const Register = async(req, res) => {
             }
 
             res.status(200).json({
-                msg : `${email} registered Successfullly`,
-                success : true,
-                data : newUser
+                msg: `${email} registered Successfullly`,
+                success: true,
+                data: newUser
             })
         }
     }

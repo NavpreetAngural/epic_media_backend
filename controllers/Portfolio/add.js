@@ -11,6 +11,7 @@ const add = async (req, res) => {
         const addPortfolio = new Portfolio({
             image: req.file.filename, // or `/uploads/${req.file.filename}` if you want full path
             orientation,
+            url: req.file.path,
         });
 
         await addPortfolio.save();

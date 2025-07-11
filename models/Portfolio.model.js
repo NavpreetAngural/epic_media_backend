@@ -1,14 +1,18 @@
-const {Schema , model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const portfolioSchema = new Schema({
-    image : {
-        required : true,
-        type : String
+    image: {
+        required: true,
+        type: String
     },
-    orientation : {
-        type : String,
-        required : true
+    orientation: {
+        type: String,
+        required: true
     },
+    url: {
+        type: String,
+        required: true
+    }
 })
 
-module.exports = model("portfolios" , portfolioSchema);     
+module.exports = model("portfolios", portfolioSchema);     

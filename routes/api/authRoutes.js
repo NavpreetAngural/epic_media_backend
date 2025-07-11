@@ -7,15 +7,8 @@ const Login = require("../../controllers/Auth/Login")
 const viewAll = require("../../controllers/Auth/viewall")
 const deleteUser = require("../../controllers/Auth/delete")
 const updateUser = require("../../controllers/Auth/update")
+const upload = require("../../middleware/cloudinaryUpload")
 
-const storage = multer.diskStorage({
-    destination: "uploads",
-    filename: (req, file, cb) => {
-        return cb(null, `${Date.now()}${file.originalname}`)
-    }
-})
-
-const upload = multer({ storage: storage })
 
 router.post("/register", upload.single('dp'), signup)
 router.post("/google", upload.single('dp'), googleLogin)

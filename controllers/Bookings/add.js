@@ -1,50 +1,40 @@
-const User = require("../../models/User.model")
+const User = require("../../models/User.model");
 const Booking = require("../../models/booking.model");
 const bookingEmail = require("./bookingNodemailer");
+
 const add = async (req, res) => {
     try {
-        const { fullName, email, location, service, date } = req.body;
+        const { fullName, email, location, service, date , status } = req.body;
 
-        const existsUser = await User.findOne({ email })
+        const existsUser = await User.findOne({ email });
 
         if (!existsUser) {
-            res.status(401).json({
-                msg: "Please Register First"
-            })
+            return res.status(401).json({ msg: "Please Register First" });
         }
-        else {
-            const newBooking = new Booking({
-                fullName,
-                email,
-                location,
-                service,
-                status,
-                date,
-            })
 
-            await newBooking.save()
+        const newBooking = new Booking({
+            fullName,
+            email,
+            location,
+            service,
+            status, // or remove this line if not needed
+            date,
+        });
 
-            try {
-                await bookingEmail(email, fullName, date, service, location)
-                console.log("email sent");
-                
-            }
-            catch (emailerror) {
-                console.error("email sending failed", emailerror)
-            }
+        await newBooking.save();
 
-            res.status(200).json({
-                msg: "Booking Added Successfully"
-            })
+        try {
+            await bookingEmail(email, fullName, date, service, location);
+            console.log("email sent");
+        } catch (emailerror) {
+            console.error("email sending failed", emailerror);
         }
-    }
-    catch (err) {
+
+        res.status(200).json({ msg: "Booking Added Successfully" });
+    } catch (err) {
         console.log(err);
-
-        res.status(500).json({
-            msg: "Failed to Add Booking"
-        })
+        res.status(500).json({ msg: "Failed to Add Booking" });
     }
-}
+};
 
-module.exports = add
+module.exports = add;
