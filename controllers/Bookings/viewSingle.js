@@ -1,9 +1,5 @@
-const Booking = require('../../models/Booking.model');
-/**
- * @desc View single booking by email
- * @route GET /api/bookings/view/:email
- * @access Public
- */
+const Booking = require("../../models/Booking.model");
+
 const viewSingle = async (req, res) => {
     const email = req.params.email
   try {
