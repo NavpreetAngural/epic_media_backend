@@ -1,4 +1,4 @@
-const Booking = require("../../models/Booking.model");
+const Booking = require("../../models/booking.model");
 const sendMail = require("./nodemailStatus");
 
 const updateBooking = async (req, res) => {
