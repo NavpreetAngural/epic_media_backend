@@ -11,6 +11,7 @@ const add = async (req, res) => {
     const addCategory = new Category({
       cName,
       description,
+      orientation,
       media: req.file.filename,
       url: req.file.path,
     });
