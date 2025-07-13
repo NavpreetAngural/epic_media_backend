@@ -2,7 +2,7 @@ const Category = require("../../models/Category.model");
 
 const add = async (req, res) => {
   try {
-    const { cName, description } = req.body;
+    const { cName, description , orientation} = req.body;
 
     if (!req.file) {
       return res.status(400).json({ msg: "Media file is required." });
