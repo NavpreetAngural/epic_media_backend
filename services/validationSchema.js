@@ -14,9 +14,4 @@ const contactValidation = Joi.object({
     message : Joi.string().required()
 })
 
-// const categoryValidation = Joi.object({
-//     cName : Joi.string().required(),
-//     description : Joi.string().required()
-// })
-
 module.exports = {registerValidation , contactValidation}

@@ -13,7 +13,7 @@ const categorySchema = new Schema({
         type: String,
         required: true
     },
-        orientation: {
+    orientation: {
         type: String,
         required: true
     },
@@ -21,7 +21,7 @@ const categorySchema = new Schema({
         type: String,
         required: true
     }
-    
+
 })
 
-module.exports = model("categories" , categorySchema)
+module.exports = model("categories", categorySchema)
